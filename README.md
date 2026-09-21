@@ -6,6 +6,8 @@
 
 ## 🌐 線上展示 (Live Demo)
 
+![台灣氣象 GIS 平台即時地圖展示](docs/images/demo.png)
+
 - **Live Demo 網址**：[https://taiwan-weather-gis.vercel.app](https://taiwan-weather-gis.vercel.app)
 
 > **部署原則說明**：本專案包含動態後端 API 路由（`/api/weather`）與 SQLite 快取機制以保護 CWA API Key 不外洩，因此**嚴格不部署於僅支援純靜態網頁之 GitHub Pages**。推薦於 [Vercel](https://vercel.com/) 連結此 GitHub 儲存庫進行一鍵動態伺服器部署。
