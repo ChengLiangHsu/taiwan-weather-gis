@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-tertiary": "#ffffff",
+          "on-error": "#ffffff",
+          "inverse-surface": "#213145",
+          "primary-fixed-dim": "#93ccff",
+          "primary-fixed": "#cce5ff",
+          "background": "#f8f9ff",
+          "on-surface": "#0b1c30",
+          "secondary-container": "#fea619",
+          "secondary": "#855300",
+          "error": "#ba1a1a",
+          "outline-variant": "#bfc7d2",
+          "surface-tint": "#006398",
+          "primary": "#006194",
+          "secondary-fixed-dim": "#ffb95f",
+          "primary-container": "#007bb9",
+          "on-primary": "#ffffff",
+          "surface-container-high": "#dce9ff",
+          "on-secondary-fixed-variant": "#653e00",
+          "surface-container-lowest": "#ffffff",
+          "on-secondary-container": "#684000",
+          "surface-container-highest": "#d3e4fe",
+          "tertiary": "#006947",
+          "on-secondary-fixed": "#2a1700",
+          "secondary-fixed": "#ffddb8",
+          "on-error-container": "#93000a",
+          "on-primary-fixed-variant": "#004b73",
+          "on-surface-variant": "#3f4850",
+          "error-container": "#ffdad6",
+          "surface-container-low": "#eff4ff",
+          "tertiary-fixed-dim": "#4edea3",
+          "on-tertiary-fixed-variant": "#005236",
+          "surface": "#f8f9ff",
+          "surface-container": "#e5eeff",
+          "surface-variant": "#d3e4fe",
+          "on-secondary": "#ffffff",
+          "surface-dim": "#cbdbf5",
+          "tertiary-fixed": "#6ffbbe",
+          "inverse-primary": "#93ccff",
+          "on-tertiary-fixed": "#002113",
+          "tertiary-container": "#00855b",
+          "surface-bright": "#f8f9ff",
+          "inverse-on-surface": "#eaf1ff",
+          "outline": "#707881",
+          "on-background": "#0b1c30",
+          "on-tertiary-container": "#f5fff6",
+          "on-primary-fixed": "#001d31",
+          "on-primary-container": "#fdfcff"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "gutter-mobile": "0.75rem",
+          "space-xs": "0.25rem",
+          "gutter": "1.5rem",
+          "space-md": "1rem",
+          "space-lg": "1.5rem",
+          "space-sm": "0.5rem",
+          "margin": "2rem",
+          "margin-mobile": "1rem",
+          "space-xl": "2.5rem"
+        },
+        "fontFamily": {
+          "body-md": [
+            "Be Vietnam Pro"
+          ],
+          "title-md": [
+            "Plus Jakarta Sans"
+          ],
+          "headline-sm": [
+            "Plus Jakarta Sans"
+          ],
+          "headline-md": [
+            "Plus Jakarta Sans"
+          ],
+          "label-md": [
+            "Be Vietnam Pro"
+          ],
+          "headline-lg-mobile": [
+            "Plus Jakarta Sans"
+          ],
+          "display-hero-mobile": [
+            "Plus Jakarta Sans"
+          ],
+          "label-lg": [
+            "Be Vietnam Pro"
+          ],
+          "display-hero": [
+            "Plus Jakarta Sans"
+          ],
+          "label-sm": [
+            "Be Vietnam Pro"
+          ],
+          "body-sm": [
+            "Be Vietnam Pro"
+          ],
+          "body-lg": [
+            "Be Vietnam Pro"
+          ],
+          "headline-lg": [
+            "Plus Jakarta Sans"
+          ]
+        },
+        "fontSize": {
+          "body-md": [
+            "15px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "400"
+            }
+          ],
+          "title-md": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-sm": [
+            "20px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-md": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "fontWeight": "600"
+            }
+          ],
+          "label-md": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-lg-mobile": [
+            "28px",
+            {
+              "lineHeight": "36px",
+              "fontWeight": "600"
+            }
+          ],
+          "display-hero-mobile": [
+            "48px",
+            {
+              "lineHeight": "56px",
+              "fontWeight": "700"
+            }
+          ],
+          "label-lg": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "600"
+            }
+          ],
+          "display-hero": [
+            "64px",
+            {
+              "lineHeight": "72px",
+              "fontWeight": "700"
+            }
+          ],
+          "label-sm": [
+            "11px",
+            {
+              "lineHeight": "14px",
+              "fontWeight": "500"
+            }
+          ],
+          "body-sm": [
+            "13px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ],
+          "body-lg": [
+            "18px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-lg": [
+            "36px",
+            {
+              "lineHeight": "44px",
+              "fontWeight": "600"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-background font-body-md text-on-surface antialiased min-h-screen flex flex-col selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 inset-x-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_12px_rgba(0,97,148,0.06)]"><div class="h-20 max-w-[1280px] mx-auto px-margin-mobile lg:px-margin flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm group" href="#"><div class="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center text-primary transition-transform group-hover:scale-105"><span class="material-symbols-outlined text-[24px]">partly_cloudy_day</span></div><div class="flex flex-col"><span class="font-title-md text-title-md text-on-surface tracking-tight leading-tight">台灣天氣通</span><span class="font-label-sm text-label-sm text-on-surface-variant leading-none">Taiwan Weather</span></div></a><div class="hidden sm:flex items-center gap-space-xs px-space-sm py-1 rounded-full bg-surface-container-low text-primary"><span class="material-symbols-outlined text-[18px]">location_on</span><span class="font-label-md text-label-md font-medium text-on-surface">台北市 大安區</span><span class="material-symbols-outlined text-[16px] text-on-surface-variant cursor-pointer">arrow_drop_down</span></div></div><div class="flex-1 max-w-sm hidden md:block"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-outline text-[18px] pointer-events-none">search</span><input class="w-full pl-9 pr-4 py-2 bg-surface-container-lowest rounded-lg font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all" placeholder="搜尋縣市、鄉鎮市區 (如：板橋、恆春)..." type="text"/></div></div><div class="flex items-center gap-space-md"><div class="flex items-center bg-surface-container p-0.5 rounded-full"><button class="px-2.5 py-1 rounded-full font-label-sm text-label-sm bg-surface-container-lowest text-primary shadow-[0_1px_4px_rgba(0,0,0,0.06)] font-semibold" type="button">°C</button><button class="px-2.5 py-1 rounded-full font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface font-medium" type="button">°F</button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div><div class="bg-surface-container-low/60"><div class="max-w-[1280px] mx-auto px-margin-mobile lg:px-margin"><nav class="flex items-center gap-space-lg overflow-x-auto py-2.5 scrollbar-none" data-active-classes="text-primary font-semibold border-b-2 border-primary"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap py-1" data-path="today-weather-and-map" href="#">今日天氣與地圖</a><a aria-current="page" class="transition-colors whitespace-nowrap py-1 text-primary font-semibold border-b-2 border-primary" data-path="weekly-forecast" href="#">一週生活預報</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors whitespace-nowrap py-1" data-path="living-and-clothing-index" href="#">出門穿著與生活指數</a></nav></div></div></header><main class="w-full pt-32 flex-1 max-w-[1280px] mx-auto px-margin-mobile lg:px-margin pb-space-xl"><div class="flex flex-col w-full">
+<!-- Ambient Sky Glow Backdrops -->
+<div class="relative w-full overflow-hidden">
+<div class="absolute -top-16 -right-20 w-96 h-96 bg-primary-fixed/40 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute top-72 -left-20 w-80 h-80 bg-tertiary-fixed/30 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<!-- Friendly Island Notification Banner -->
+<section class="mb-space-lg">
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm p-space-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm border-0">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-tertiary-fixed flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary">全島好天氣</span>
+<span class="font-label-md text-label-md font-semibold text-on-surface">目前全台無颱風警報・東北季風微弱</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">週三北台灣短暫午後微雨，其餘時間溫和陽光露臉，適合洗曬衣物與排定戶外行程！</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs self-end sm:self-auto shrink-0">
+<span class="font-label-sm text-label-sm text-outline">10分鐘前更新</span>
+<button class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-primary transition-colors" title="即時整理" type="button">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Top District Selector & Search Navigation -->
+<section class="mb-space-xl flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-md text-label-md text-primary font-bold tracking-wider">LOCAL DISTRICT FORECAST</span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">台灣各地生活觀測</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">一週生活預報與出門穿搭</h2>
+</div>
+<!-- District Quick Filter Pills -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 scrollbar-none">
+<button class="district-btn px-4 py-2 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg shadow-sm font-semibold transition-all whitespace-nowrap" type="button">
+          台北市 大安區
+        </button>
+<button class="district-btn px-4 py-2 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg shadow-sm transition-all whitespace-nowrap" type="button">
+          新北市 板橋區
+        </button>
+<button class="district-btn px-4 py-2 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg shadow-sm transition-all whitespace-nowrap" type="button">
+          台中市 西屯區
+        </button>
+<button class="district-btn px-4 py-2 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg shadow-sm transition-all whitespace-nowrap" type="button">
+          高雄市 左營區
+        </button>
+<button class="district-btn px-4 py-2 rounded-xl bg-surface-container-lowest hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg shadow-sm transition-all whitespace-nowrap" type="button">
+          花蓮縣 吉安鄉
+        </button>
+<button class="px-3 py-2 rounded-xl bg-surface-container-low text-primary hover:bg-surface-container flex items-center justify-center transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">add_location_alt</span>
+</button>
+</div>
+</section>
+<!-- 7-Day Visual Forecast Timeline (Cards Grid) -->
+<section class="mb-space-xl">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">calendar_month</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">未來 7 天循序天氣走勢</h3>
+</div>
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container inline-block"></span> 溫暖區間
+          </span>
+<span class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-container inline-block"></span> 週末晴朗
+          </span>
+</div>
+</div>
+<!-- Grid of 7 Day Cards -->
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-space-sm">
+<!-- Day 1: Today (Mon) -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="absolute top-0 inset-x-0 h-1 bg-primary"></div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-primary">今天</span>
+<span class="font-label-sm text-label-sm text-outline">10/21 週一</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container text-primary font-medium">舒適</span>
+</div>
+<div class="my-space-md flex flex-col items-center">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-low flex items-center justify-center text-primary mb-2 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">partly_cloudy_day</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface font-semibold">多雲時晴</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">微風吹拂</span>
+</div>
+<!-- Temp Bar & Rain Pill -->
+<div class="flex flex-col gap-space-xs mt-auto">
+<div class="flex items-baseline justify-between text-on-surface">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">27°</span>
+<span class="font-label-md text-label-md text-outline">21°</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full w-4/5 ml-auto"></div>
+</div>
+<div class="mt-2 flex items-center justify-center gap-1 py-1 rounded-lg bg-surface-container-low text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">water_drop</span>
+<span>15% 免帶傘</span>
+</div>
+</div>
+</div>
+<!-- Day 2: Tue -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">週二</span>
+<span class="font-label-sm text-label-sm text-outline">10/22</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-fixed/50 text-secondary font-medium">暖陽</span>
+</div>
+<div class="my-space-md flex flex-col items-center">
+<div class="w-14 h-14 rounded-2xl bg-secondary-fixed/30 flex items-center justify-center text-secondary mb-2 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">sunny</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface font-semibold">晴時多雲</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">紫外線偏強</span>
+</div>
+<div class="flex flex-col gap-space-xs mt-auto">
+<div class="flex items-baseline justify-between text-on-surface">
+<span class="font-headline-sm text-headline-sm font-bold text-secondary">29°</span>
+<span class="font-label-md text-label-md text-outline">22°</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container rounded-full w-5/6 ml-auto"></div>
+</div>
+<div class="mt-2 flex items-center justify-center gap-1 py-1 rounded-lg bg-surface-container-low text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">water_drop</span>
+<span>10% 陽光好</span>
+</div>
+</div>
+</div>
+<!-- Day 3: Wed (Rainy) -->
+<div class="bg-surface-container-low/70 rounded-2xl p-space-md shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">週三</span>
+<span class="font-label-sm text-label-sm text-outline">10/23</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-fixed text-primary font-medium">轉涼</span>
+</div>
+<div class="my-space-md flex flex-col items-center">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-high flex items-center justify-center text-primary-container mb-2 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">rainy</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface font-semibold">短暫陣雨</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">微風轉陰雨</span>
+</div>
+<div class="flex flex-col gap-space-xs mt-auto">
+<div class="flex items-baseline justify-between text-on-surface">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">24°</span>
+<span class="font-label-md text-label-md text-outline">19°</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-3/5 ml-auto"></div>
+</div>
+<div class="mt-2 flex items-center justify-center gap-1 py-1 rounded-lg bg-primary-fixed text-primary font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">umbrella</span>
+<span>70% 記得帶傘</span>
+</div>
+</div>
+</div>
+<!-- Day 4: Thu -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">週四</span>
+<span class="font-label-sm text-label-sm text-outline">10/24</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium">乾爽</span>
+</div>
+<div class="my-space-md flex flex-col items-center">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-low flex items-center justify-center text-primary mb-2 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">cloud</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface font-semibold">多雲陰天</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">午後漸晴朗</span>
+</div>
+<div class="flex flex-col gap-space-xs mt-auto">
+<div class="flex items-baseline justify-between text-on-surface">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">26°</span>
+<span class="font-label-md text-label-md text-outline">20°</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full w-3/4 ml-auto"></div>
+</div>
+<div class="mt-2 flex items-center justify-center gap-1 py-1 rounded-lg bg-surface-container-low text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">water_drop</span>
+<span>25% 偶飄毛雨</span>
+</div>
+</div>
+</div>
+<!-- Day 5: Fri -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">週五</span>
+<span class="font-label-sm text-label-sm text-outline">10/25</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-tertiary/10 text-tertiary font-medium">舒適</span>
+</div>
+<div class="my-space-md flex flex-col items-center">
+<div class="w-14 h-14 rounded-2xl bg-surface-container-low flex items-center justify-center text-tertiary mb-2 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface font-semibold">晴時多雲</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">氣候怡人</span>
+</div>
+<div class="flex flex-col gap-space-xs mt-auto">
+<div class="flex items-baseline justify-between text-on-surface">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">28°</span>
+<span class="font-label-md text-label-md text-outline">21°</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-tertiary rounded-full w-4/5 ml-auto"></div>
+</div>
+<div class="mt-2 flex items-center justify-center gap-1 py-1 rounded-lg bg-surface-container-low text-primary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">water_drop</span>
+<span>15% 免帶傘</span>
+</div>
+</div>
+</div>
+<!-- Day 6: Sat (Weekend Highlight) -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-md flex flex-col justify-between hover:shadow-xl transition-all relative overflow-hidden group ring-2 ring-secondary-fixed">
+<div class="absolute top-0 right-0 px-2.5 py-0.5 rounded-bl-xl bg-secondary-container text-on-secondary font-label-sm text-label-sm font-bold">
+            週末推薦
+          </div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-secondary">週六</span>
+<span class="font-label-sm text-label-sm text-outline">10/26</span>
+</div>
+</div>
+<div class="my-space-md flex flex-col items-center">
+<div class="w-14 h-14 rounded-2xl bg-secondary-fixed/40 flex items-center justify-center text-secondary mb-2 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">sunny</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface font-semibold">晴朗萬里</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">戶外野餐讚</span>
+</div>
+<div class="flex flex-col gap-space-xs mt-auto">
+<div class="flex items-baseline justify-between text-on-surface">
+<span class="font-headline-sm text-headline-sm font-bold text-secondary">30°</span>
+<span class="font-label-md text-label-md text-outline">22°</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container rounded-full w-11/12 ml-auto"></div>
+</div>
+<div class="mt-2 flex items-center justify-center gap-1 py-1 rounded-lg bg-secondary-fixed/40 text-secondary font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">wb_twilight</span>
+<span>5% 晴天野餐日</span>
+</div>
+</div>
+</div>
+<!-- Day 7: Sun (Weekend Highlight) -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-md flex flex-col justify-between hover:shadow-xl transition-all relative overflow-hidden group ring-2 ring-secondary-fixed">
+<div class="absolute top-0 right-0 px-2.5 py-0.5 rounded-bl-xl bg-secondary-container text-on-secondary font-label-sm text-label-sm font-bold">
+            週末推薦
+          </div>
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg font-bold text-secondary">週日</span>
+<span class="font-label-sm text-label-sm text-outline">10/27</span>
+</div>
+</div>
+<div class="my-space-md flex flex-col items-center">
+<div class="w-14 h-14 rounded-2xl bg-secondary-fixed/40 flex items-center justify-center text-secondary mb-2 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">partly_cloudy_day</span>
+</div>
+<span class="font-title-md text-title-md text-on-surface font-semibold">溫和晴朗</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">海邊踏浪宜</span>
+</div>
+<div class="flex flex-col gap-space-xs mt-auto">
+<div class="flex items-baseline justify-between text-on-surface">
+<span class="font-headline-sm text-headline-sm font-bold text-secondary">29°</span>
+<span class="font-label-md text-label-md text-outline">22°</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-low rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container rounded-full w-5/6 ml-auto"></div>
+</div>
+<div class="mt-2 flex items-center justify-center gap-1 py-1 rounded-lg bg-secondary-fixed/40 text-secondary font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-[14px]">water_drop</span>
+<span>10% 露營絕佳</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Temperature Trend Waveform Section -->
+<section class="mb-space-xl bg-surface-container-lowest rounded-3xl p-space-lg shadow-sm">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-space-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">show_chart</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">7 天日夜氣溫走勢圖</h3>
+</div>
+<div class="flex items-center gap-space-md font-label-sm text-label-sm">
+<span class="flex items-center gap-1.5 text-secondary font-semibold">
+<span class="w-3 h-1 bg-secondary-container rounded-full"></span> 最高溫曲線
+          </span>
+<span class="flex items-center gap-1.5 text-primary font-semibold">
+<span class="w-3 h-1 bg-primary-container rounded-full"></span> 最低溫曲線
+          </span>
+</div>
+</div>
+<!-- Inline SVG Chart -->
+<div class="w-full overflow-x-auto">
+<div class="min-w-[680px] h-48 py-2">
+<svg class="w-full h-full overflow-visible text-primary" viewbox="0 0 700 160">
+<!-- Grid Lines -->
+<line stroke="currentColor" stroke-dasharray="4" stroke-opacity="0.06" x1="20" x2="680" y1="20" y2="20"></line>
+<line stroke="currentColor" stroke-dasharray="4" stroke-opacity="0.06" x1="20" x2="680" y1="65" y2="65"></line>
+<line stroke="currentColor" stroke-dasharray="4" stroke-opacity="0.06" x1="20" x2="680" y1="110" y2="110"></line>
+<line stroke="currentColor" stroke-dasharray="4" stroke-opacity="0.06" x1="20" x2="680" y1="150" y2="150"></line>
+<!-- Gradient Area for High Temp -->
+<defs>
+<lineargradient id="highTempGrad" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#fea619" stop-opacity="0.3"></stop>
+<stop offset="100%" stop-color="#fea619" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<!-- High Temp Path (Mon: 27°, Tue: 29°, Wed: 24°, Thu: 26°, Fri: 28°, Sat: 30°, Sun: 29°) -->
+<path d="M 50,55 Q 100,35 150,35 T 250,85 T 350,65 T 450,45 T 550,25 T 650,35 L 650,140 L 50,140 Z" fill="url(#highTempGrad)"></path>
+<path d="M 50,55 Q 100,35 150,35 T 250,85 T 350,65 T 450,45 T 550,25 T 650,35" fill="none" stroke="#fea619" stroke-linecap="round" stroke-width="3.5"></path>
+<!-- Low Temp Path (Mon: 21°, Tue: 22°, Wed: 19°, Thu: 20°, Fri: 21°, Sat: 22°, Sun: 22°) -->
+<path d="M 50,115 Q 100,105 150,105 T 250,135 T 350,125 T 450,115 T 550,105 T 650,105" fill="none" stroke="#007bb9" stroke-dasharray="2 1" stroke-linecap="round" stroke-width="3"></path>
+<!-- High Data Points -->
+<g class="text-secondary font-bold">
+<circle cx="50" cy="55" fill="#ffffff" r="4.5" stroke="#fea619" stroke-width="3"></circle>
+<text fill="#855300" font-family="Plus Jakarta Sans" font-size="12" text-anchor="middle" x="50" y="44">27°</text>
+<circle cx="150" cy="35" fill="#ffffff" r="4.5" stroke="#fea619" stroke-width="3"></circle>
+<text fill="#855300" font-family="Plus Jakarta Sans" font-size="12" text-anchor="middle" x="150" y="24">29°</text>
+<circle cx="250" cy="85" fill="#ffffff" r="4.5" stroke="#ba1a1a" stroke-width="3"></circle>
+<text fill="#ba1a1a" font-family="Plus Jakarta Sans" font-size="12" text-anchor="middle" x="250" y="74">24°(降溫)</text>
+<circle cx="350" cy="65" fill="#ffffff" r="4.5" stroke="#fea619" stroke-width="3"></circle>
+<text fill="#855300" font-family="Plus Jakarta Sans" font-size="12" text-anchor="middle" x="350" y="54">26°</text>
+<circle cx="450" cy="45" fill="#ffffff" r="4.5" stroke="#fea619" stroke-width="3"></circle>
+<text fill="#855300" font-family="Plus Jakarta Sans" font-size="12" text-anchor="middle" x="450" y="34">28°</text>
+<circle cx="550" cy="25" fill="#ffffff" r="5" stroke="#fea619" stroke-width="3.5"></circle>
+<text fill="#855300" font-family="Plus Jakarta Sans" font-size="13" font-weight="bold" text-anchor="middle" x="550" y="14">30°</text>
+<circle cx="650" cy="35" fill="#ffffff" r="4.5" stroke="#fea619" stroke-width="3"></circle>
+<text fill="#855300" font-family="Plus Jakarta Sans" font-size="12" text-anchor="middle" x="650" y="24">29°</text>
+</g>
+<!-- Low Data Points -->
+<g class="text-primary font-medium">
+<circle cx="50" cy="115" fill="#ffffff" r="3.5" stroke="#007bb9" stroke-width="2.5"></circle>
+<text fill="#006194" font-family="Be Vietnam Pro" font-size="11" text-anchor="middle" x="50" y="132">21°</text>
+<circle cx="150" cy="105" fill="#ffffff" r="3.5" stroke="#007bb9" stroke-width="2.5"></circle>
+<text fill="#006194" font-family="Be Vietnam Pro" font-size="11" text-anchor="middle" x="150" y="122">22°</text>
+<circle cx="250" cy="135" fill="#ffffff" r="3.5" stroke="#007bb9" stroke-width="2.5"></circle>
+<text fill="#006194" font-family="Be Vietnam Pro" font-size="11" text-anchor="middle" x="250" y="152">19°(微涼)</text>
+<circle cx="350" cy="125" fill="#ffffff" r="3.5" stroke="#007bb9" stroke-width="2.5"></circle>
+<text fill="#006194" font-family="Be Vietnam Pro" font-size="11" text-anchor="middle" x="350" y="142">20°</text>
+<circle cx="450" cy="115" fill="#ffffff" r="3.5" stroke="#007bb9" stroke-width="2.5"></circle>
+<text fill="#006194" font-family="Be Vietnam Pro" font-size="11" text-anchor="middle" x="450" y="132">21°</text>
+<circle cx="550" cy="105" fill="#ffffff" r="3.5" stroke="#007bb9" stroke-width="2.5"></circle>
+<text fill="#006194" font-family="Be Vietnam Pro" font-size="11" text-anchor="middle" x="550" y="122">22°</text>
+<circle cx="650" cy="105" fill="#ffffff" r="3.5" stroke="#007bb9" stroke-width="2.5"></circle>
+<text fill="#006194" font-family="Be Vietnam Pro" font-size="11" text-anchor="middle" x="650" y="122">22°</text>
+</g>
+</svg>
+</div>
+</div>
+<div class="mt-space-xs flex items-center justify-between font-label-sm text-label-sm text-outline px-4">
+<span>週一 (今天)</span>
+<span>週二</span>
+<span class="text-error font-medium">週三 (轉涼陣雨)</span>
+<span>週四</span>
+<span>週五</span>
+<span class="text-secondary font-bold">週六 (黃金出遊日)</span>
+<span class="text-secondary font-bold">週日 (海邊日光)</span>
+</div>
+</section>
+<!-- 2-Column Split: '出門穿著指南' & '生活生活指數' -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg mb-space-xl">
+<!-- Left Column (7 cols): Weekly Clothing Advice by Segments -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">apparel</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">出門穿著指南</h3>
+</div>
+<span class="font-label-sm text-label-sm text-outline">分段氣象建議</span>
+</div>
+<!-- Segment 1: Wed (Chill & Rain) Highlight -->
+<div class="bg-surface-container-low rounded-2xl p-space-md shadow-sm relative overflow-hidden flex flex-col sm:flex-row items-center gap-space-md">
+<div class="w-24 h-24 rounded-2xl bg-surface-container-lowest shrink-0 flex flex-col items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">dry_cleaning</span>
+<span class="font-label-sm text-label-sm font-bold mt-1 text-primary">週三降溫</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">防風防水+長袖</span>
+<span class="font-title-md text-title-md text-on-surface font-bold">短暫陰雨・體感偏涼 (19°~24°)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+              推薦穿搭：<strong>純棉薄長袖 + 薄針織或防風風衣</strong>。捷運通勤族請隨身攜帶輕量折疊傘與防潑水薄外套，早晚騎乘機車時建議拉起拉鍊以免受風。
+            </p>
+<div class="mt-2 flex items-center gap-space-xs text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px]">tips_and_updates</span>
+<span>貼心建議：若搭乘公車或捷運，車廂內冷氣與室外雨氣交織，易感冒請備圍巾。</span>
+</div>
+</div>
+</div>
+<!-- Segment 2: Weekend (Sunny & Warm) -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm relative overflow-hidden flex flex-col sm:flex-row items-center gap-space-md">
+<div class="w-24 h-24 rounded-2xl bg-secondary-fixed/30 shrink-0 flex flex-col items-center justify-center text-secondary shadow-sm">
+<span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">styler</span>
+<span class="font-label-sm text-label-sm font-bold mt-1 text-secondary">週末暖熱</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold">透氣短袖+防曬</span>
+<span class="font-title-md text-title-md text-on-surface font-bold">全台放晴・陽光燦爛 (22°~30°)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+              推薦穿搭：<strong>透氣短袖T恤、亞麻襯衫搭配輕薄防曬遮陽帽</strong>。正午紫外線可能達到過量級，戶外野餐活動記得攜帶太陽眼鏡與SPF50+防曬乳。
+            </p>
+<div class="mt-2 flex items-center gap-space-xs text-outline font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[15px]">beach_access</span>
+<span>貼心建議：午後在草皮或海灘請多補充水分，預防熱衰竭與中暑。</span>
+</div>
+</div>
+</div>
+<!-- Segment 3: General Daily (Mon, Tue, Thu, Fri) -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm relative overflow-hidden flex flex-col sm:flex-row items-center gap-space-md">
+<div class="w-24 h-24 rounded-2xl bg-surface-container-low shrink-0 flex flex-col items-center justify-center text-primary shadow-sm">
+<span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">checkroom</span>
+<span class="font-label-sm text-label-sm font-bold mt-1 text-primary">平日工作天</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-primary-fixed text-primary font-label-sm text-label-sm font-bold">多層次穿搭</span>
+<span class="font-title-md text-title-md text-on-surface font-bold">微風宜人・溫差 7 度 (21°~28°)</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5 leading-relaxed">
+              推薦穿搭：<strong>舒適短袖內搭 + 寬鬆休閒襯衫</strong>。早晨出門及傍晚微有涼意，洋蔥式穿法最不易著涼，辦公室冷氣房備一件開襟薄外套即可。
+            </p>
+</div>
+</div>
+</div>
+<!-- Right Column (5 cols): Daily Living Indices (生活指數 Bento) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[22px]">health_and_safety</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-bold">本週生活指數指南</h3>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-medium">即時指數</span>
+</div>
+<div class="grid grid-cols-2 gap-space-sm h-full">
+<!-- Index 1: 曬衣指數 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-xl bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[24px]">local_laundry_service</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-bold">
+                極佳
+              </span>
+</div>
+<div class="mt-3">
+<span class="font-title-md text-title-md text-on-surface font-bold block">洗曬衣物</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">週一、週二及週末日照充足，大件厚被床單半日即乾透！</p>
+</div>
+<div class="mt-3 pt-2 border-t-0 flex items-center gap-1 font-label-sm text-label-sm text-tertiary font-medium">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span>避開週三降雨日</span>
+</div>
+</div>
+<!-- Index 2: 空氣品質 AQI -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-xl bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">air</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container text-primary font-bold">
+                AQI 38 良好
+              </span>
+</div>
+<div class="mt-3">
+<span class="font-title-md text-title-md text-on-surface font-bold block">戶外運動空品</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">全台微風擴散條件佳，晨跑與河濱自行車運動皆十分舒適。</p>
+</div>
+<div class="mt-3 pt-2 border-t-0 flex items-center gap-1 font-label-sm text-label-sm text-primary font-medium">
+<span class="material-symbols-outlined text-[16px]">nature_people</span>
+<span>綠色安全等級</span>
+</div>
+</div>
+<!-- Index 3: 紫外線指數 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-xl bg-secondary-fixed/50 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[24px]">wb_sunny</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary font-bold">
+                UV 7 高量
+              </span>
+</div>
+<div class="mt-3">
+<span class="font-title-md text-title-md text-on-surface font-bold block">紫外線防曬</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">11:00 至 14:00 陽光穿透力強，外出 20 分鐘以上請戴帽撐陽傘。</p>
+</div>
+<div class="mt-3 pt-2 border-t-0 flex items-center gap-1 font-label-sm text-label-sm text-secondary font-medium">
+<span class="material-symbols-outlined text-[16px]">light_mode</span>
+<span>備好遮陽用具</span>
+</div>
+</div>
+<!-- Index 4: 洗車指數 -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-[24px]">directions_car</span>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-fixed-dim text-on-primary-fixed font-bold">
+                週四後宜
+              </span>
+</div>
+<div class="mt-3">
+<span class="font-title-md text-title-md text-on-surface font-bold block">愛車清洗</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">週三有毛雨泥塵，建議排在週四或週五洗車，可維持潔淨一整週！</p>
+</div>
+<div class="mt-3 pt-2 border-t-0 flex items-center gap-1 font-label-sm text-label-sm text-primary font-medium">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>建議週四洗車</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Weekend Weather Planner (週末出遊天氣企劃) -->
+<section class="mb-space-xl bg-surface-container-lowest rounded-3xl p-space-lg shadow-sm">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm mb-space-lg">
+<div>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-md bg-secondary-container text-on-secondary font-label-sm text-label-sm font-bold">WEEKEND GETAWAY</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">週末出遊天氣企劃・活動指南</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+            週六、週日全台皆處於高壓迴流環境，陽光明媚！以下為本週末熱門活動適宜度與推薦景點：
+          </p>
+</div>
+<a class="px-4 py-2 rounded-xl bg-primary-fixed text-primary hover:bg-primary-fixed-dim transition-colors font-label-lg text-label-lg font-bold flex items-center gap-1 shrink-0" href="#">
+<span>全台景點即時影像</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</a>
+</div>
+<!-- 3 Rich Lifestyle Destination Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Activity Card 1: Picnic & Parks -->
+<div class="bg-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group">
+<div class="relative h-48 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sunny bright weekend day at Daan Forest Park in Taipei Taiwan, vibrant green grass lawn, families picnicking under lush camphor trees, clear azure blue sky with puffy white clouds, peaceful daylight, highly detailed and realistic photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoypYOth7eAboEpdLgbCYFjWE9eCpzy6Q0WxmyrtMQwt4KhkHycUc1xitl9yiwmh50IhJK1St3pXhqE8SwdleXEqg8MXG14r8srUEcek9BE_gtI7-y8u3Y2BDO1ShFebTGP72aO01XXHxKWgfdezsgP3yi4HWkNihV0Q9Suh3ZnR7RBiU1oHUkueOfgM_P86WFaxIgtXnoqVKsa19FwgFM6LAc5CPeCP1ip_sFYOFVlbSmbOEUrQfJ"/>
+<div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">park</span> 草地野餐 ★★★★★
+            </div>
+<div class="absolute bottom-3 right-3 px-2.5 py-1 rounded-lg bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface font-label-sm text-label-sm">
+              降雨率 &lt; 5%
+            </div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-bold text-on-surface">大安森林公園・美堤河濱</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">29°C 暖和</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 leading-relaxed">
+                週末台北草皮乾燥、微風吹拂，非常適合攜帶野餐墊與小朋友放風箏。建議午後三點前往，避開中午強烈陽光最舒適。
+              </p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-outline font-label-sm text-label-sm border-t-0">
+<span class="flex items-center gap-1 text-tertiary font-semibold">
+<span class="material-symbols-outlined text-[16px]">done</span> 蚊蟲指數中等
+              </span>
+<span>推薦時段: 15:00-18:00</span>
+</div>
+</div>
+</div>
+<!-- Activity Card 2: Mountain Camping -->
+<div class="bg-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group">
+<div class="relative h-48 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Camping site in Hsinchu Jianshi mountains Taiwan, white canvas glamping tents nestled on a terraced mountain ridge, majestic panoramic mountain range bathed in warm golden sunset light, serene and refreshing atmosphere, ultra high quality photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWBwLQYbVbyVTI2vXWDjJXRP-PVAxnTv4t4hIiEEk2_r1xdurxYteDPWSrY42dToVIJxNUjnmFSVyn45UrQtr_AutQuxdG0XJMMupZMNlGUOoOg8tzIKxtLzPywgOzP6JUb6-lHqjEsPxCKU9pmd8MDDMw3hlZDrW1SI6XEIelAjYziG1llrKaJYAMs1N_LF3749FuowVuxMWr2Ohg1FerKIoY9JHrWP-5NBPSgyE_Fx32I_Mfuf89"/>
+<div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">camping</span> 高山露營 ★★★★★
+            </div>
+<div class="absolute bottom-3 right-3 px-2.5 py-1 rounded-lg bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface font-label-sm text-label-sm">
+              夜溫 16°C
+            </div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-bold text-on-surface">新竹尖石・苗栗泰安</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">16°~24°C 清爽</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 leading-relaxed">
+                中高海拔無雲霧遮蔽，夜晚星空能見度極佳！高山入夜體感降溫明顯，請務必攜帶輕量羽絨外套與保溫睡袋。
+              </p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-outline font-label-sm text-label-sm border-t-0">
+<span class="flex items-center gap-1 text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">stars</span> 星空觀測 100分
+              </span>
+<span>日夜溫差 8 度</span>
+</div>
+</div>
+</div>
+<!-- Activity Card 3: Coastal Beach & Water -->
+<div class="bg-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group">
+<div class="relative h-48 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Pristine white sand beach and crystal blue waters in Kenting South Bay Taiwan, gentle turquoise ocean waves lapping the shore, tropical coastal scenery, clear blue sky, joyful summer leisure vibe, vibrant cinematic composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_SxLzKzZC1Myri-g347o4jtxptbnjhvxqyBY7S2SYK2mMvuw22SoP7SggRWMbEYLjSyAJe9HsLkac6pqJeDdQbK-TNDdlfroa8b5VAsuAJgzBreKxAM8F_zHMDKvUI4l1zGFcUFuj3vaiLEGZsLTXLd54foSV4iT32EEmIue5biRKXDEZ3PaqwZVJcFPvQGSy2gxE_NglOKZEzBa4cFwCt-rw6Ya6iA7c1Cu0q462r2aV1VqW9rTk"/>
+<div class="absolute top-3 left-3 px-3 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm font-bold text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">surfing</span> 海灘踏浪 ★★★★☆
+            </div>
+<div class="absolute bottom-3 right-3 px-2.5 py-1 rounded-lg bg-inverse-surface/80 backdrop-blur-md text-inverse-on-surface font-label-sm text-label-sm">
+              浪高 0.8 米平緩
+            </div>
+</div>
+<div class="p-space-md flex-1 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md font-bold text-on-surface">宜蘭外澳・屏東恆春</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">30°C 豔陽</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 leading-relaxed">
+                潮汐平穩、風浪輕柔，適合SUP立槳衝浪與海邊慢步。南台灣氣溫逼近 30 度，請定時塗抹海洋友善防曬乳防曬傷。
+              </p>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between text-outline font-label-sm text-label-sm border-t-0">
+<span class="flex items-center gap-1 text-secondary font-semibold">
+<span class="material-symbols-outlined text-[16px]">waves</span> 風浪平緩安全
+              </span>
+<span>水溫約 26°C</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Commuter & Rainy-Day Weather Reminder Footer Box -->
+<section class="p-space-lg rounded-2xl bg-surface-container-low flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center text-on-primary shrink-0">
+<span class="material-symbols-outlined text-[26px]">notifications_active</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-title-md text-title-md text-on-surface font-bold">開啟出門前降雨推播提醒</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">天天清晨 07:30 為您推播「今日是否帶傘與建議穿著」，機車通勤更從容！</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full sm:w-auto">
+<button class="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg font-semibold hover:bg-primary-container transition-all shadow-sm" type="button">
+          免費開啟通知
+        </button>
+</div>
+</section>
+</div>
+<!-- Micro-interactions Script for District Buttons -->
+<script>
+    document.querySelectorAll('.district-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.district-btn').forEach(btn => {
+          btn.classList.remove('bg-primary', 'text-on-primary');
+          btn.classList.add('bg-surface-container-lowest', 'text-on-surface');
+        });
+        button.classList.remove('bg-surface-container-lowest', 'text-on-surface');
+        button.classList.add('bg-primary', 'text-on-primary');
+      });
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-low mt-auto"><div class="max-w-[1280px] mx-auto px-margin-mobile lg:px-margin py-space-xl"><div class="flex flex-col md:flex-row items-center justify-between gap-space-md text-center md:text-left"><div class="flex flex-col gap-space-xs"><div class="flex items-center justify-center md:justify-start gap-space-xs text-primary"><span class="material-symbols-outlined text-[20px]">verified</span><span class="font-title-md text-title-md text-on-surface">台灣天氣通 Taiwan Weather</span></div><p class="font-body-sm text-body-sm text-on-surface-variant">氣象資料來源：交通部中央氣象署 (CWA) 開放資料平臺。為台灣日常生活與通勤所設計之溫暖預報介面。</p></div><div class="flex items-center gap-space-lg"><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="privacy-and-disclaimer" href="#">氣象免責與使用說明</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="today-weather-and-map" href="#">回首頁預報</a></div></div><div class="mt-space-lg pt-space-md flex flex-col sm:flex-row items-center justify-between gap-space-xs font-label-sm text-label-sm text-outline"><p>© 2025 台灣天氣通 Taiwan Weather. 保留所有權利。</p><p>即時雨量與溫泉觀測更新中</p></div></div></footer></body></html>
