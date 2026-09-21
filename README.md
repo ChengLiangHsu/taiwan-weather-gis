@@ -4,6 +4,14 @@
 
 ---
 
+## 🌐 線上展示 (Live Demo)
+
+- **Live Demo 網址**：[https://taiwan-weather-gis.vercel.app](https://taiwan-weather-gis.vercel.app)
+
+> **部署原則說明**：本專案包含動態後端 API 路由（`/api/weather`）與 SQLite 快取機制以保護 CWA API Key 不外洩，因此**嚴格不部署於僅支援純靜態網頁之 GitHub Pages**。推薦於 [Vercel](https://vercel.com/) 連結此 GitHub 儲存庫進行一鍵動態伺服器部署。
+
+---
+
 ## 核心功能
 
 1. **中央氣象署 CWA 資料同步**：即時串接 36 小時與一週預報資料（氣溫、降雨機率、舒適度、天氣現象）。
