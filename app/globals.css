@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    overscroll-behavior: none;
+  }
+}
+
+/* Leaflet 地圖樣式調整 */
+@import "leaflet/dist/leaflet.css";
+
+.leaflet-div-icon {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* 隱藏原生捲軸但保持滾動 */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
