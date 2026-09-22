@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { fetchCWA36hForecast } from "@/lib/cwa/client";
-import { normalizeCWALocation } from "@/lib/cwa/normalize";
+import { fetchCWAWeekForecast, fetchCWA36hForecast } from "@/lib/cwa/client";
+import { normalizeCWAWeekLocation, normalizeCWALocation } from "@/lib/cwa/normalize";
 import {
   getCountyWeatherFromCache,
   saveCountyWeatherToCache,
@@ -26,14 +26,24 @@ export async function GET(req: NextRequest) {
       }
     }
 
-    // 2. 若快取過期或查詢全部，向 CWA 抓取
-    const rawLocations = await fetchCWA36hForecast();
+    // 2. 若快取過期或查詢全部，向 CWA 抓取真實一週資料集 (F-D0047-091)
     const weatherMap: Record<string, CountyWeather> = {};
 
-    for (const loc of rawLocations) {
-      const normalized = normalizeCWALocation(loc);
-      weatherMap[normalized.county] = normalized;
-      saveCountyWeatherToCache(normalized.county, normalized);
+    try {
+      const weekLocations = await fetchCWAWeekForecast();
+      for (const loc of weekLocations) {
+        const normalized = normalizeCWAWeekLocation(loc);
+        weatherMap[normalized.county] = normalized;
+        saveCountyWeatherToCache(normalized.county, normalized);
+      }
+    } catch (weekErr) {
+      console.warn("F-D0047-091 fetch failed, fallback to 36h:", weekErr);
+      const raw36h = await fetchCWA36hForecast();
+      for (const loc of raw36h) {
+        const normalized = normalizeCWALocation(loc);
+        weatherMap[normalized.county] = normalized;
+        saveCountyWeatherToCache(normalized.county, normalized);
+      }
     }
 
     if (requestedCounty) {

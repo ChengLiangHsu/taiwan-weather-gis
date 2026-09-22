@@ -1,4 +1,4 @@
-import { CWALocation } from "./types";
+import { CWALocation, CWAWeekLocation } from "./types";
 
 export function getCWAKey(): string {
   return (
@@ -33,3 +33,29 @@ export async function fetchCWA36hForecast(): Promise<CWALocation[]> {
 
   return locations;
 }
+
+export async function fetchCWAWeekForecast(): Promise<CWAWeekLocation[]> {
+  const apiKey = getCWAKey();
+  if (!apiKey) {
+    throw new Error("Missing CWA API Key in environment variables (.env)");
+  }
+
+  const url = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-091?Authorization=${encodeURIComponent(
+    apiKey
+  )}`;
+
+  const res = await fetch(url, {
+    next: { revalidate: 1800 }, // 快取 30 分鐘
+  });
+
+  if (!res.ok) {
+    throw new Error(`CWA Week Forecast API request failed with status: ${res.status}`);
+  }
+
+  const data = await res.json();
+  const locations: CWAWeekLocation[] =
+    data?.records?.Locations?.[0]?.Location || [];
+
+  return locations;
+}
+

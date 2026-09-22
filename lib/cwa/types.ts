@@ -18,6 +18,26 @@ export interface CWALocation {
   weatherElement: WeatherElement[];
 }
 
+export interface CWAWeekTimeItem {
+  StartTime: string;
+  EndTime: string;
+  ElementValue: Record<string, string>[];
+}
+
+export interface CWAWeekWeatherElement {
+  ElementName: string;
+  Description?: string;
+  Time: CWAWeekTimeItem[];
+}
+
+export interface CWAWeekLocation {
+  LocationName: string;
+  Geocode?: string;
+  Latitude?: string;
+  Longitude?: string;
+  WeatherElement: CWAWeekWeatherElement[];
+}
+
 export interface NormalizedForecastPeriod {
   startTime: string;
   endTime: string;
