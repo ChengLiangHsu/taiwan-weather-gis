@@ -47,6 +47,8 @@ export interface NormalizedForecastPeriod {
   minTemp: number;
   comfort: string;
   rainProb: number;
+  periodName?: string;
+  timeRangeDisplay?: string;
 }
 
 export interface CountyWeather {
@@ -62,6 +64,8 @@ export interface CountyWeather {
     uvIndex: number;
     aqi: number;
     advice: string;
+    sunrise: string;
+    sunset: string;
   };
   periods: NormalizedForecastPeriod[];
   weekly: {

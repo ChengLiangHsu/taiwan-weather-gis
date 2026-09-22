@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { fetchCWAWeekForecast, fetchCWA36hForecast } from "@/lib/cwa/client";
+import {
+  fetchCWAWeekForecast,
+  fetchCWA36hForecast,
+  fetchCWASunriseSunset,
+} from "@/lib/cwa/client";
 import { normalizeCWAWeekLocation, normalizeCWALocation } from "@/lib/cwa/normalize";
 import {
   getCountyWeatherFromCache,
@@ -26,13 +30,22 @@ export async function GET(req: NextRequest) {
       }
     }
 
-    // 2. 若快取過期或查詢全部，向 CWA 抓取真實一週資料集 (F-D0047-091)
+    // 2. 若快取過期或查詢全部，向 CWA 抓取真實一週資料集 (F-D0047-091) 與日出日沒 (A-B0062-001)
     const weatherMap: Record<string, CountyWeather> = {};
 
     try {
-      const weekLocations = await fetchCWAWeekForecast();
+      const [weekLocations, rawSunMap] = await Promise.all([
+        fetchCWAWeekForecast(),
+        fetchCWASunriseSunset().catch(() => ({})),
+      ]);
+      const sunMap: Record<string, { sunrise: string; sunset: string }> =
+        rawSunMap || {};
+
       for (const loc of weekLocations) {
-        const normalized = normalizeCWAWeekLocation(loc);
+        const sun =
+          sunMap[loc.LocationName] ||
+          sunMap[loc.LocationName.replace("臺", "台")];
+        const normalized = normalizeCWAWeekLocation(loc, sun);
         weatherMap[normalized.county] = normalized;
         saveCountyWeatherToCache(normalized.county, normalized);
       }

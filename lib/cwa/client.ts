@@ -59,3 +59,47 @@ export async function fetchCWAWeekForecast(): Promise<CWAWeekLocation[]> {
   return locations;
 }
 
+export async function fetchCWASunriseSunset(): Promise<
+  Record<string, { sunrise: string; sunset: string }>
+> {
+  const apiKey = getCWAKey();
+  if (!apiKey) return {};
+
+  try {
+    const today = new Date().toLocaleDateString("en-CA", {
+      timeZone: "Asia/Taipei",
+    });
+    const nextDate = new Date(Date.now() + 86400000).toLocaleDateString(
+      "en-CA",
+      { timeZone: "Asia/Taipei" }
+    );
+    const url = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/A-B0062-001?Authorization=${encodeURIComponent(
+      apiKey
+    )}&timeFrom=${today}&timeTo=${nextDate}`;
+
+    const res = await fetch(url, { next: { revalidate: 3600 } });
+    if (!res.ok) return {};
+
+    const data = await res.json();
+    const locs = data?.records?.locations?.location || [];
+    const resultMap: Record<string, { sunrise: string; sunset: string }> = {};
+
+    for (const loc of locs) {
+      const county = loc.CountyName || loc.locationName;
+      const todayTime =
+        loc.time?.find((t: any) => t.Date === today) || loc.time?.[0];
+      if (county && todayTime) {
+        resultMap[county] = {
+          sunrise: todayTime.SunRiseTime || "05:46",
+          sunset: todayTime.SunSetTime || "17:54",
+        };
+      }
+    }
+    return resultMap;
+  } catch (err) {
+    console.warn("Fetch CWA sunrise sunset failed:", err);
+    return {};
+  }
+}
+
+

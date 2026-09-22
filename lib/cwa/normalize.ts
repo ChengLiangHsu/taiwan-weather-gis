@@ -108,13 +108,18 @@ export function normalizeCWALocation(loc: CWALocation): CountyWeather {
       uvIndex: p0.rainProb > 50 ? 3.2 : 6.5,
       aqi: 35,
       advice,
+      sunrise: "05:46",
+      sunset: "17:54",
     },
     periods,
     weekly,
   };
 }
 
-export function normalizeCWAWeekLocation(loc: CWAWeekLocation): CountyWeather {
+export function normalizeCWAWeekLocation(
+  loc: CWAWeekLocation,
+  sunInfo?: { sunrise: string; sunset: string }
+): CountyWeather {
   const elements = loc.WeatherElement || [];
   const getElem = (name: string) =>
     elements.find((e) => e.ElementName === name)?.Time || [];
@@ -142,15 +147,33 @@ export function normalizeCWAWeekLocation(loc: CWAWeekLocation): CountyWeather {
     const pop = popRaw === "-" || !popRaw ? 0 : parseInt(popRaw, 10);
     const comfort = ciElem[i]?.ElementValue[0]?.MaxComfortIndexDescription || "舒適";
 
+    const sIso = maxTElem[i]?.StartTime || "";
+    const eIso = maxTElem[i]?.EndTime || "";
+    const sTime = sIso.slice(11, 16);
+    const eTime = eIso.slice(11, 16);
+    const timeRangeDisplay = sTime && eTime ? `${sTime} - ${eTime}` : "";
+
+    let periodName = "時段預報";
+    const isNight = sIso.includes("T18:");
+    if (i === 0) {
+      periodName = isNight ? "今晚明晨" : "今日白天";
+    } else if (i === 1) {
+      periodName = isNight ? "今晚明晨" : "明日白天";
+    } else if (i === 2) {
+      periodName = isNight ? "明晚後晨" : "明日白天";
+    }
+
     periods.push({
-      startTime: maxTElem[i]?.StartTime || "",
-      endTime: maxTElem[i]?.EndTime || "",
+      startTime: sIso,
+      endTime: eIso,
       weather: wx,
       weatherCode: wxCode,
       maxTemp: isNaN(maxT) ? 26 : maxT,
       minTemp: isNaN(minT) ? 20 : minT,
       comfort,
       rainProb: isNaN(pop) ? 0 : pop,
+      periodName,
+      timeRangeDisplay,
     });
   }
 
@@ -321,6 +344,8 @@ export function normalizeCWAWeekLocation(loc: CWAWeekLocation): CountyWeather {
       uvIndex,
       aqi: 35,
       advice,
+      sunrise: sunInfo?.sunrise || "05:46",
+      sunset: sunInfo?.sunset || "17:54",
     },
     periods,
     weekly,

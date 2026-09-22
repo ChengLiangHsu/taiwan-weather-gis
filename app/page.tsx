@@ -27,7 +27,8 @@ const ALL_COUNTIES = [
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<"today" | "weekly">("today");
-  const [selectedCounty, setSelectedCounty] = useState<string>("臺北市");
+  // 預設為臺中市（方便對照中央氣象署官方預報）
+  const [selectedCounty, setSelectedCounty] = useState<string>("臺中市");
   const [weatherMap, setWeatherMap] = useState<Record<string, CountyWeather>>({});
   const [loading, setLoading] = useState<boolean>(true);
   const [unit, setUnit] = useState<"C" | "F">("C");
@@ -77,6 +78,8 @@ export default function Home() {
         uvIndex: 5.5,
         aqi: 35,
         advice: "午後對流雲系穩定，微風吹拂，適合外出散步與晾曬衣物。",
+        sunrise: "05:46",
+        sunset: "17:54",
       },
       periods: [
         {

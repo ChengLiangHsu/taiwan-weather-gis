@@ -24,7 +24,9 @@ export default function TodayWeather({
     );
   }
 
-  const { current, periods, county } = weather;
+  const { current, periods, weekly, county } = weather;
+  const todayHigh = weekly?.[0]?.maxTemp ?? periods[0]?.maxTemp ?? 33;
+  const todayLow = weekly?.[0]?.minTemp ?? periods[0]?.minTemp ?? 26;
 
   // 轉換溫度
   const formatTemp = (tempC: number) => {
@@ -43,16 +45,7 @@ export default function TodayWeather({
     return "partly_cloudy_day";
   };
 
-  // 模擬 12 小時時序預報（以當前與未來預報組合）
-  const hourlyData = [
-    { time: "現在", temp: current.temp, pop: current.rainProb, icon: getWeatherIcon(current.weather) },
-    { time: "12:00", temp: current.temp + 1, pop: Math.max(10, current.rainProb - 5), icon: "partly_cloudy_day" },
-    { time: "14:00", temp: current.temp + 2, pop: Math.min(90, current.rainProb + 15), icon: current.rainProb > 40 ? "rainy" : "wb_sunny" },
-    { time: "16:00", temp: current.temp, pop: Math.min(80, current.rainProb + 10), icon: current.rainProb > 40 ? "rainy" : "cloud" },
-    { time: "18:00", temp: current.temp - 2, pop: current.rainProb, icon: "cloud" },
-    { time: "20:00", temp: current.temp - 3, pop: Math.max(5, current.rainProb - 10), icon: "bedtime" },
-    { time: "22:00", temp: current.temp - 4, pop: Math.max(5, current.rainProb - 15), icon: "night_shelter" },
-  ];
+
 
   return (
     <div className="flex flex-col gap-6">
@@ -72,7 +65,7 @@ export default function TodayWeather({
           <span className="material-symbols-outlined text-[15px] text-secondary">
             wb_twilight
           </span>
-          <span>日出 06:05 • 日落 17:58</span>
+          <span>日出 {current.sunrise || "05:46"} • 日落 {current.sunset || "17:54"}</span>
         </div>
       </div>
 
@@ -109,8 +102,7 @@ export default function TodayWeather({
             {periods[0] && (
               <div className="hidden sm:flex flex-col items-end">
                 <span className="px-3 py-1 rounded-full bg-primary-fixed text-[#004b73] text-xs font-semibold">
-                  今日最高 {formatTemp(periods[0].maxTemp)} / 最低{" "}
-                  {formatTemp(periods[0].minTemp)}
+                  今日最高 {formatTemp(todayHigh)} / 最低 {formatTemp(todayLow)}
                 </span>
               </div>
             )}
@@ -235,42 +227,61 @@ export default function TodayWeather({
         </div>
       </section>
 
-      {/* 12-Hour Forecast Slider */}
+      {/* 36-Hour Period Forecast (對齊氣象署官網三大時段卡片) */}
       <section className="bg-white rounded-2xl p-5 sm:p-6 shadow-sm border border-outline-variant/30">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <span className="material-symbols-outlined text-primary text-[20px]">
-              schedule
+              calendar_view_day
             </span>
             <h2 className="font-heading font-semibold text-base sm:text-lg text-[#0b1c30]">
-              今日 12 小時隨走時序預報
+              中央氣象署 今明 36 小時預報
             </h2>
           </div>
-          <span className="text-xs text-[#707881]">滑動查看各時段天候</span>
+          <span className="text-xs text-[#707881]">官方分段預報</span>
         </div>
 
-        <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-none snap-x">
-          {hourlyData.map((hour, idx) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {periods.slice(0, 3).map((p, idx) => (
             <div
               key={idx}
-              className={`snap-start flex flex-col items-center justify-between p-3 rounded-xl min-w-[90px] shrink-0 text-center shadow-sm border transition-all ${
+              className={`flex flex-col items-center justify-between p-4 rounded-xl text-center shadow-sm border transition-all ${
                 idx === 0
-                  ? "bg-[#eff4ff] border-primary/20"
-                  : "bg-white border-outline-variant/20 hover:bg-[#eff4ff]/60"
+                  ? "bg-[#eff4ff] border-primary/30"
+                  : "bg-white border-outline-variant/20 hover:bg-[#eff4ff]/40"
               }`}
             >
-              <span className="text-xs text-[#707881]">{hour.time}</span>
-              <span className="material-symbols-outlined text-[28px] text-primary my-2">
-                {hour.icon}
-              </span>
-              <span className="font-heading font-semibold text-base text-[#0b1c30]">
-                {formatTemp(hour.temp)}
-              </span>
-              <div className="mt-2 flex items-center text-primary text-xs">
-                <span className="material-symbols-outlined text-[14px]">
-                  water_drop
+              <div className="w-full flex items-center justify-between border-b border-outline-variant/20 pb-2 mb-2">
+                <span className="font-semibold text-sm text-primary">
+                  {p.periodName || (idx === 0 ? "今日白天" : idx === 1 ? "今晚明晨" : "明日白天")}
                 </span>
-                <span>{hour.pop}%</span>
+                <span className="text-xs text-[#707881]">
+                  {p.timeRangeDisplay || ""}
+                </span>
+              </div>
+
+              <span className="material-symbols-outlined text-[36px] text-primary my-2">
+                {getWeatherIcon(p.weather)}
+              </span>
+
+              <span className="text-sm font-medium text-[#3f4850] mb-1">
+                {p.weather}
+              </span>
+
+              <span className="font-heading font-bold text-xl text-[#0b1c30]">
+                {formatTemp(p.minTemp)} ~ {formatTemp(p.maxTemp)}
+              </span>
+
+              <div className="mt-3 w-full flex items-center justify-between text-xs text-[#707881] pt-2 border-t border-outline-variant/20">
+                <div className="flex items-center gap-1 text-primary">
+                  <span className="material-symbols-outlined text-[14px]">
+                    water_drop
+                  </span>
+                  <span>{p.rainProb}%</span>
+                </div>
+                <span className="px-2 py-0.5 rounded bg-surface-container-low text-[#3f4850] font-medium">
+                  {p.comfort}
+                </span>
               </div>
             </div>
           ))}
